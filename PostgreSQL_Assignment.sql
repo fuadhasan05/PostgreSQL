@@ -1,6 +1,6 @@
--- Active: 1748273635328@@localhost@5432@conservation_db
+-- Active: 1748273635328@@localhost@5432@conservation
 
-CREATE DATABASE conservation_db;
+CREATE DATABASE conservation;
 
 DROP TABLE IF EXISTS sightings;
 DROP TABLE IF EXISTS species;
@@ -104,7 +104,8 @@ WHERE (s.species_id, s.sighting_time) IN (
     FROM sightings
     GROUP BY species_id
 )
-ORDER BY s.sighting_time DESC;
+ORDER BY s.sighting_time DESC
+LIMIT 2;
 
 -- 7️⃣ Update all species discovered before year 1800 to have status 'Historic'.
 UPDATE species
