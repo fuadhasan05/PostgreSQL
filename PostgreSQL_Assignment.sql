@@ -114,11 +114,6 @@ WHERE discovery_date < '1800-01-01';
 -- 8️⃣ Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
 SELECT
     sighting_id,
-    species_id,
-    ranger_id,
-    location,
-    sighting_time,
-    notes,
     CASE
         WHEN EXTRACT(HOUR FROM sighting_time) < 12 THEN 'Morning'
         WHEN EXTRACT(HOUR FROM sighting_time) >= 12 AND EXTRACT(HOUR FROM sighting_time) < 17 THEN 'Afternoon'
